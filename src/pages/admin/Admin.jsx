@@ -52,6 +52,7 @@ function Admin() {
         } else {
             try {
                 setLoading(true);
+                await signOut(auth);
                 let checking = await checkingAdminRole(email)
                 .then(res => {
                     return res;
@@ -85,6 +86,7 @@ function Admin() {
                 <div className="container">
                     <div className="row">
                     <div className="col-12 col-md-8 col-lg-6 m-auto">
+                        <h2 className='title text-center'>Admin <span>Space</span></h2>
                         <div className="card border-0 shadow p-2 border-radius">
                         <div className="card-body text-center">
                             <svg className="mx-auto my-3" xmlns="http://www.w3.org/2000/svg" width="50" height="50" fill="currentColor" viewBox="0 0 16 16">

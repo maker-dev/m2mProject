@@ -10,9 +10,20 @@
             background-color: #f8f9fc
         }
         .secondary-bg {
-            background-color: #ffffff56;
+            background-color: #BDCDD6;
         }
-    
+        .success-bg {
+            background-color: #93eea8;
+        }
+        .danger-bg {
+            background-color: #f3a5ad;
+        }
+        .info-bg {
+            background-color: #aef3fe;
+        }
+        .warning-bg {
+            background-color: #ffedb9;
+        }
         .rounded-full {
             border-radius: 100%;
         }
@@ -53,6 +64,12 @@
         }
         .shadow-sm {
             box-shadow: 0 .125rem .25rem rgba(0, 0, 0, .075) !important;
+        }
+        .shadow {
+            box-shadow: 0 .15rem 1.75rem 0 rgba(58, 59, 69, .15) !important;
+        }
+        .ls-1 {
+            letter-spacing: 1px;
         }
         #wrapper {
             overflow-x: hidden;

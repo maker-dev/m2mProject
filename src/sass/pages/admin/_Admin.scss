@@ -1,4 +1,5 @@
 @use '../../variables/Main' as *;
+@use '../../helpers/Mixins' as *;
 #admin-login {
     min-height: 100vh;
     background-color: $section-background;
@@ -7,5 +8,14 @@
     }
     .shadow {
             box-shadow: 0 .5rem 1rem rgba(0, 0, 0, .15) !important;
+    }
+    button {
+        padding: 8px 14px;
+    }
+    .title {
+        @include title;
+        span {
+            color: $secondary-color;
         }
+    }
 }
