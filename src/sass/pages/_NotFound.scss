@@ -1,0 +1,18 @@
+@use '../variables/Main' as *;
+
+.notf {
+    height: 100vh;
+    .notf-container {
+        a {
+            color: white;
+            background-color: $main-color;
+            padding: 10px;
+            border-radius: 4px;
+            text-decoration: none;
+            transition: 0.3s;
+            &:hover {
+                background-color: $secondary-color;
+            }
+        }
+    }
+}

@@ -1,0 +1,61 @@
+@use '../variables/Main' as *;
+
+footer {
+    background-color: $section-background;
+    > .social-section {
+        background-color: $main-color;
+        .socialNet {
+            a {
+                text-align: center;
+                font-size: 18px;
+                display: inline-block;
+                background-color: $secondary-color;
+                color: #fff;
+                line-height: 1;
+                padding: 8px 0;
+                margin: 0 3px;
+                border-radius: 4px;
+                width: 36px;
+                height: 36px;
+            }
+        }
+    }
+
+    > .main-section {
+        background-color: $section-background;
+        hr {
+            width: 60px; 
+            background-color: $secondary-color;
+            height: 2px
+        }
+        p {
+            word-wrap: break-word;
+            a {
+                color: $main-color;
+                text-decoration: none;
+                transition: 0.3s;
+                &:hover {
+                    color: $secondary-color;
+                }
+            }
+        }
+        p {
+            i {
+                display: inline;
+                color: $main-color
+            }
+        }
+    }
+
+    > .last-section {
+        background-color: white;
+        a {
+            color: $secondary-color;
+            font-weight: 500;
+            @media screen and (max-width: 380px) {
+                display: block;
+                margin-top: 3px;
+            }
+        }
+    }
+}

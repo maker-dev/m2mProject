@@ -1,0 +1,143 @@
+@use '../variables/Main' as *;
+
+header {
+    background-color: $section-background;
+    box-shadow: 0px 0px 5px 0px;
+    padding: 20px 0;
+    > div {
+
+        .logo {
+            max-width: 60px;
+        }
+
+        & > div .profile-link {
+            @media screen and (max-width: 950px) {
+                display: block !important;
+            }
+            img {
+                max-width: 40px;
+                max-height: 40px;
+                border-radius: 50%;
+                transition: all 0.3s ease;
+                &:hover {
+                    transform: scale(1.2);
+                }
+            }
+        }
+
+        .burger {
+            display: none;
+            cursor: pointer;
+            span {
+                display: block;
+                width: 30px;
+                height: 3px;
+                background-color: $main-color;
+                margin: 5px auto;
+                transition: all 0.3s ease-in-out;
+            }
+            @media screen and (max-width: 950px) {
+                display: block;
+            }
+            &.active {
+                .line1 {
+                    transform: translateY(8px) rotate(45deg);
+                }
+                .line2 {
+                    opacity: 0;
+                }
+                .line3 {
+                    transform: translateY(-8px) rotate(-45deg);
+                }
+            }
+        }
+        
+        nav {
+            transition: 0.5s ease-in-out;
+            ul {
+                margin: 0;
+                padding: 0;
+                @media screen and (max-width: 950px) {
+                    display: flex;
+                    flex-direction: column;
+                    align-items: center;
+                    margin-left: 20px;
+                    justify-content: space-evenly;
+                    height: 100%
+                }
+                li {
+                    display: inline-block;
+                    margin: 0 14px;
+                    a {
+                        text-decoration: none !important;
+                        color: $main-color;
+                        font-weight: 500;
+                        font-size: 18px;
+                        transition: 0.3s;
+                        &:hover {
+                            color: $secondary-color;
+                        }
+                    }
+                    &.register {
+                        a {
+                            background-color: $main-color;
+                            outline: none;
+                            padding: 10px;
+                            border-radius: 6px;
+                            color: white;
+                            &:hover {
+                                background-color: $secondary-color;
+                            }
+                        }
+                    }
+                    &.signout {
+                        button {
+                            background-color: $secondary-color;
+                            outline: none;
+                            border: none;
+                            padding: 10px;
+                            border-radius: 6px;
+                            color: white;
+                            cursor: pointer;
+                            transition: 0.3s;
+                            &:hover {
+                                background-color: $main-color;
+                            }
+                        }
+                    }
+                    &.profile {
+                        img {
+                            max-width: 40px;
+                            max-height: 40px;
+                            border-radius: 50%;
+                            transition: all 0.3s ease;
+                                &:hover {
+                                    transform: scale(1.2);
+                                }
+                        }
+                        @media screen and (max-width: 950px) {
+                            display: none !important;
+                        }
+                    }
+                    @media screen and (max-width: 950px) {
+                        .h-icon {
+                            display: inline !important;
+                        }
+                    }
+                }
+            }
+            @media screen and (max-width: 950px) {
+                position: absolute;
+                left: 0;
+                top: 100px;
+                width: 100%;
+                height: calc(100vh - 100px);
+                background-color: $section-background;
+                transform: translateX(-100%);
+            }
+            &.active {
+                transform: translateX(0);
+            }
+        }
+    }
+}

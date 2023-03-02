@@ -1,0 +1,39 @@
+@use '../variables/Main' as *;
+#loading {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    z-index: 9999999;
+    left: 0;
+    top: 0;
+    background-color: white;
+    opacity: .6;
+    .loader {
+            border: 14px solid $main-color;
+            border-top: 14px solid $secondary-color;
+            border-radius: 50%;
+            width: 100px;
+            height: 100px;
+            animation: spin 2s linear infinite;
+            @media screen and (max-width: 600px) {
+                border-top-width: 10px;
+                border-width: 10px;
+                width: 80px;
+                height: 80px;
+            }
+    }
+    
+        
+}
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+}

@@ -1,0 +1,60 @@
+@use '../variables/Main' as *;
+@use '../helpers/Mixins' as *;
+
+.new {
+    margin-bottom: 100px;
+    .new-image {
+        width: 100%;
+        height: auto;
+    }
+
+    .new-content {
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        .new-header {
+            h3 {
+                font-size: 25px;
+                color: $main-color;
+                font-weight: 500;
+                text-transform: uppercase;
+            }
+            hr {
+                @include breakSmall;
+                margin: 0px 0px 15px 0px;
+                padding: 0;
+            }
+        }
+
+        .new-body {
+            p, p > span {
+                word-wrap: break-word;
+                font-family: sans-serif;
+                font-weight: 400;
+                margin: 0;
+                span.hidden {
+                    display: none;
+                }
+            }
+            button {
+                padding: 4px;
+                text-transform: capitalize;
+                font-size: 13px;
+            }
+        }
+
+        .new-footer {
+            margin-top: 20px;
+            h5 {
+                color: $secondary-color;
+                font-size: 20px;
+                margin: 0;
+            }
+        }
+    }
+}
+
+.new:last-child {
+    margin-bottom: 0px;
+}

@@ -1,0 +1,24 @@
+//import layout scss files
+@use './sass/layout/Navbar';
+@use './sass/layout/Footer';
+@use './sass/layout/Arrow';
+@use './sass/layout/Loader';
+@use './sass/layout/New';
+@use './sass/layout/Skeleton';
+@use './sass/layout/InboxEmail.scss';
+
+//import pages scss files
+@use './sass/pages/Home';
+@use './sass/pages/NotFound';
+@use './sass/pages/Register';
+@use './sass/pages/Verify';
+@use './sass/pages/Signin';
+@use './sass/pages/ResetPassword';
+@use './sass//pages/News';
+@use './sass/pages/Inbox';
+@use './sass/pages/Profile';
+@use './sass/pages/Apply';
+
+//import admin scss files
+@use './sass/pages/admin/Admin';
+@use './sass/pages/admin/Dashboard';

@@ -1,0 +1,11 @@
+@use '../../variables/Main' as *;
+#admin-login {
+    min-height: 100vh;
+    background-color: $section-background;
+    .border-radius {
+        border-radius: 8px;
+    }
+    .shadow {
+            box-shadow: 0 .5rem 1rem rgba(0, 0, 0, .15) !important;
+        }
+}

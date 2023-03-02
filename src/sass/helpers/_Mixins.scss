@@ -1,0 +1,24 @@
+@use '../variables/Main' as *;
+
+@mixin breakSmall() {
+    width: 80px;
+    height: 3px;
+    background-color: $secondary-color;
+}
+
+@mixin title() {
+    font-size: 40px;
+    color: $main-color;
+    font-weight: bold;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    margin-bottom: 30px;
+}
+
+@mixin sectionStart() {
+    margin-top: 100px;
+    padding: $section-padding 0;
+    width: 100%;
+    min-height: calc(100vh - 100px);
+    background-color: $section-background;
+}

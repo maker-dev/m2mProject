@@ -1,0 +1,41 @@
+{
+  "short_name": "m2mservices",
+  "name": "M2m Services",
+  "icons": [
+    {
+      "src": "./assets/manifest/logo16.png",
+      "sizes": "16x16",
+      "type": "image/png"
+    },
+    {
+      "src": "./assets/manifest/logo24.png",
+      "sizes": "24x24",
+      "type": "image/png"
+    },
+    {
+      "src": "./assets/manifest/logo32.png",
+      "sizes": "32x32",
+      "type": "image/png"
+    },
+    {
+      "src": "./assets/manifest/logo64.png",
+      "sizes": "64x64",
+      "type": "image/png"
+    },
+    {
+      "src": "./assets/manifest/logo192.png",
+      "type": "image/png",
+      "sizes": "192x192"
+    },
+    {
+      "src": "./assets/manifest/logo512.png",
+      "type": "image/png",
+      "sizes": "512x512"
+    }
+  ],
+  "start_url": "index.html",
+  "display": "standalone",
+  "theme_color": "#29285e",
+  "background_color": "#ffffff",
+  "orientation": "portrait-primary"
+}

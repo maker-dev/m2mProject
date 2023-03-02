@@ -1,0 +1,15 @@
+@use '../helpers/Mixins' as *;
+@use '../variables/Main' as *;
+#inbox-section {
+    @include sectionStart;
+    display: flex;
+    align-items: center;
+    .container > .title {
+        @include title;
+        margin-bottom: 80px;
+        text-align: center;
+        span {
+            color: $secondary-color;
+        }
+    }
+}

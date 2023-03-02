@@ -1,0 +1,62 @@
+@use '../variables/Main' as *;
+
+.inbox-email {
+    margin-bottom: 100px;
+    .image-container {
+        display: flex;
+        justify-content: center;
+        .email-image {
+            font-size: 46px;
+            color: $main-color;
+        }
+    }
+
+    .email {
+        .header {
+            .title {
+                display: inline-block;
+                font-size: 25px;
+                font-weight: 600;
+                letter-spacing: .5px;
+            }
+            small {
+                font-size: 14px;
+            }
+        }
+        .body {
+            margin-bottom: 30px;
+            .to {
+                text-transform: capitalize;
+                font-weight: 400;
+                font-style: italic;
+                span {
+                    text-transform: uppercase;
+                    color: $secondary-color;
+                }
+            }
+            .msg {
+                font-family: sans-serif;
+                color: rgba(0, 0, 0, .7);
+                line-height: 1.8;
+                font-size: 16px;
+                word-wrap: break-word;
+            }
+        }
+        .footer {
+            font-size: 16px;
+            color: rgba(0, 0, 0, .6);
+            .thanks {
+                letter-spacing: 1px;
+                text-transform: capitalize;
+            }
+            .from {
+                text-transform: capitalize;
+                letter-spacing: 2px;
+            }
+        }
+    }
+}
+
+.inbox-email:last-child {
+    margin-bottom: 0px;
+}

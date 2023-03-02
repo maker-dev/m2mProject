@@ -1,0 +1,213 @@
+@use '../variables/Main' as *;
+@use '../helpers/Mixins' as *;
+
+#apply-section {
+    @include sectionStart;
+    display: flex;
+    align-items: center;
+
+    .apply {
+        .title {
+                @include title;
+        
+                span {
+                    color: $secondary-color;
+                }
+        
+                text-align: center;
+            }
+        .card {
+            border-radius: 6px;
+            box-shadow: 0 10px 29px 0 rgb(68 88 144 / 10%);
+            img {
+                width: 200px;
+                height: auto;
+            }
+
+            h3 {
+                margin-top: 5px;
+                color: $main-color;
+                text-transform: capitalize;
+                font-style: italic;
+                transition: color 0.2s;
+            }
+            button {
+                background-color: $main-color;
+                outline: none;
+                border: none;
+                padding: 8px 12px;
+                border-radius: 6px;
+                color: white;
+                cursor: pointer;
+                transition: 0.3s;
+                text-transform: uppercase;
+                &:hover {
+                    background-color: $secondary-color;
+                }
+            }
+        }
+        
+    }
+
+    .apply-pending {
+        > .title {
+            @include title;
+            > span {
+                color: $secondary-color;
+            }
+            text-align: center;
+        }
+
+        .result-container {
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 1px 3px 0 #d4d4d5;
+            background-color: #fff;
+            > .header {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                h4 {
+                    margin: 0;
+                }
+                @media screen and (max-width: 992px) {
+                    flex-direction: column;
+                    > h4 {
+                        margin-bottom: 20px;
+                        font-size: 20px !important;
+                    }
+                }
+            }
+
+            > .footer {
+                .icon-box {
+                    position: relative;
+                    overflow: hidden;
+                    background: #fff;
+                    display: flex;
+                    align-items: center;
+                    .icon {
+                        height: 100px;
+                        img {
+                            width: 100%;
+                            height: 100%;
+                        }
+                    }
+                    .title {
+                        margin: 0 0 0 40px;
+                        font-weight: 700;
+                        font-size: 18px;
+                        color: $main-color;
+                        text-transform: uppercase;
+                    }
+                }
+            }
+        }
+    }
+
+    .apply-accepted {
+        > .title {
+            @include title;
+            text-align: center;
+        }
+
+        .result-container {
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 1px 3px 0 #d4d4d5;
+            background-color: #fff;
+            > .header {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                h4 {
+                    margin: 0;
+                }
+                @media screen and (max-width: 992px) {
+                    flex-direction: column;
+                    > h4 {
+                        margin-bottom: 20px;
+                        font-size: 20px !important;
+                    }
+                }
+            }
+
+            > .footer {
+                .icon-box {
+                    position: relative;
+                    overflow: hidden;
+                    background: #fff;
+                    display: flex;
+                    align-items: center;
+                    .icon {
+                        height: 100px;
+                        img {
+                            width: 100%;
+                            height: 100%;
+                        }
+                    }
+                    .title {
+                        margin: 0 0 0 40px;
+                        font-weight: 700;
+                        font-size: 18px;
+                        color: $main-color;
+                        text-transform: uppercase;
+                    }
+                }
+            }
+        }
+    }
+    .apply-rejected {
+        > .title {
+            @include title;
+            color: $secondary-color !important;
+            text-align: center;
+        }
+
+        .result-container {
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 1px 3px 0 #d4d4d5;
+            background-color: #fff;
+            > .header {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                h4 {
+                    margin: 0;
+                }
+                @media screen and (max-width: 992px) {
+                    flex-direction: column;
+                    > h4 {
+                        margin-bottom: 20px;
+                        font-size: 20px !important;
+                    }
+                }
+            }
+
+            > .footer {
+                .icon-box {
+                    position: relative;
+                    overflow: hidden;
+                    background: #fff;
+                    display: flex;
+                    align-items: center;
+                    .icon {
+                        height: 100px;
+                        img {
+                            width: 100%;
+                            height: 100%;
+                        }
+                    }
+                    .title {
+                        margin: 0 0 0 40px;
+                        font-weight: 700;
+                        font-size: 18px;
+                        color: $main-color;
+                        text-transform: uppercase;
+                    }
+                }
+            }
+        }
+    }
+}
