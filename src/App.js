@@ -17,6 +17,7 @@ import Admin from './pages/admin/Admin';
 import Dashboard from './pages/admin/Dashboard';
 import UserProtectedRoutes from './protected/UserProtectedRoutes';
 import AdminProtectedRoutes from './protected/AdminProtectedRoutes';
+import Admission from './pages/admin/Admission';
 function App() {
   return (
     <div className="App">   
@@ -36,6 +37,7 @@ function App() {
             <Route path='/Admin' element={<Admin />} />
             <Route element={<AdminProtectedRoutes />}>
               <Route path='/Admin/Dashboard' element={<Dashboard />} />
+              <Route path='/Admin/Admission' element={<Admission />} />
             </Route>
             <Route path='*' element={<NotFound />} />
         </Routes>

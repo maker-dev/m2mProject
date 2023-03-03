@@ -1,0 +1,136 @@
+#wrapper {
+    .primary-text {
+        color: black;
+    }
+
+    .second-text {
+        color: gray;
+    }
+
+    .primary-bg {
+        background-color: #f8f9fc
+    }
+
+    .secondary-bg {
+        background-color: #BDCDD6;
+    }
+
+    .success-bg {
+        background-color: #93eea8;
+    }
+
+    .danger-bg {
+        background-color: #f3a5ad;
+    }
+
+    .info-bg {
+        background-color: #aef3fe;
+    }
+
+    .warning-bg {
+        background-color: #ffedb9;
+    }
+
+    .rounded-full {
+        border-radius: 100%;
+    }
+
+    .list-group-item {
+        border: none;
+        padding: 20px 30px;
+    }
+
+    .fw-bold {
+        font-weight: 700 !important;
+    }
+
+    .fs-1 {
+        font-size: calc(1.375rem + 1.5vw) !important;
+    }
+
+    .fs-2 {
+        font-size: calc(1.325rem + .9vw) !important;
+    }
+
+    .fs-4 {
+        font-size: calc(1.275rem + .3vw) !important;
+    }
+
+    .fs-5 {
+        font-size: 1.25rem !important;
+    }
+
+    a {
+        cursor: pointer;
+        font-weight: 500;
+        text-transform: capitalize;
+    }
+
+    .list-group-item-action {
+        width: 100%;
+        color: #495057;
+        text-align: inherit;
+    }
+
+    .shadow-sm {
+        box-shadow: 0 .125rem .25rem rgba(0, 0, 0, .075) !important;
+    }
+
+    .shadow {
+        box-shadow: 0 .15rem 1.75rem 0 rgba(58, 59, 69, .15) !important;
+    }
+
+    .ls-1 {
+        letter-spacing: 1px;
+    }
+    .va-center {
+        vertical-align: middle !important;
+    }
+    .text-nowrap {
+        white-space: nowrap;
+    }
+    overflow-x: hidden;
+
+    #sidebar-wrapper {
+        @media (min-width: 768px) {
+            margin-left: 0;
+        }
+
+        min-height: 100vh;
+        margin-left: -15rem;
+        -webkit-transition: margin 0.3s ease-out;
+        -moz-transition: margin 0.3s ease-out;
+        -o-transition: margin 0.3s ease-out;
+        transition: margin 0.3s ease-out;
+
+        .sidebar-heading {
+            padding: 0.875rem 1.25rem;
+            font-size: 1.2rem;
+        }
+
+        .list-group {
+            width: 15rem;
+        }
+    }
+
+    #page-content-wrapper {
+        @media (min-width: 768px) {
+            min-width: 0;
+            width: 100%;
+        }
+
+        min-width: 100vw;
+
+        #menu-toggle {
+            cursor: pointer;
+        }
+    }
+
+    &.toggled #sidebar-wrapper {
+        @media (min-width: 768px) {
+            margin-left: -15rem;
+        }
+
+        margin-left: 0;
+    }
+}

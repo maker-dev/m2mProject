@@ -1,4 +1,5 @@
 @use '../variables/Main' as *;
+
 #loading {
     display: flex;
     justify-content: center;
@@ -10,7 +11,7 @@
     left: 0;
     top: 0;
     background-color: white;
-    opacity: .6;
+    opacity: .7;
     .loader {
             border: 14px solid $main-color;
             border-top: 14px solid $secondary-color;

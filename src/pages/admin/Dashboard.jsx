@@ -81,10 +81,13 @@ function Dashboard() {
         .then(res => {
             unselected = res.data().count;
         })
-        setSecurity((securities / (securities+hostesses+dogTrainers+unselected)) * 100)
-        setHostess((hostesses / (securities+hostesses+dogTrainers+unselected)) * 100)
-        setDogtrainer((dogTrainers / (securities+hostesses+dogTrainers+unselected)) * 100)
-        setUnselected((unselected / (securities+hostesses+dogTrainers+unselected)) * 100)
+        if (!securities && !hostesses && !dogTrainers && !unselected) {
+            return;
+        }
+        setSecurity(((securities / (securities+hostesses+dogTrainers+unselected)) * 100).toFixed(1))
+        setHostess(((hostesses / (securities+hostesses+dogTrainers+unselected)) * 100).toFixed(1))
+        setDogtrainer(((dogTrainers / (securities+hostesses+dogTrainers+unselected)) * 100).toFixed(1))
+        setUnselected(((unselected / (securities+hostesses+dogTrainers+unselected)) * 100).toFixed(1))
     }
     const toggleMenu = () => {
         var element = document.getElementById("wrapper");
@@ -104,8 +107,10 @@ function Dashboard() {
                     <div className="sidebar-heading text-center ls-1 py-4 second-text fs-2 fw-bold text-uppercase border-bottom"><i
                             className="fas fa-user-secret mr-2"></i>Admin</div>
                     <div className="list-group list-group-flush my-3">
-                        <Link to={"/Admin/Dashboard"} href="#" className="dashboard list-group-item list-group-item-action bg-transparent">
+                        <Link to={"/Admin/Dashboard"} className=" text-info list-group-item list-group-item-action bg-transparent">
                             <i className="fas fa-tachometer-alt mr-2"></i>Dashboard</Link>
+                        <Link to={"/Admin/Admission"} className=" text-success list-group-item list-group-item-action bg-transparent">
+                            <i className="fa-solid fa-clipboard mr-2"></i>Admission</Link>
                         <a className="list-group-item list-group-item-action bg-transparent text-danger fw-bold" onClick={signout}>
                             <i className="fas fa-power-off mr-2"></i>Logout</a>
                     </div>
@@ -270,30 +275,32 @@ function Dashboard() {
                                 <h3 className="fs-3 mb-3 text-capitalize text-muted">Recent Visitors</h3>
                             </div>
                             <div className="col-12">
-                                <table className="table bg-white rounded shadow-sm  table-hover">
-                                    <thead>
-                                        <tr>
-                                            <th scope="col" width="50">#</th>
-                                            <th scope="col">Firstname</th>
-                                            <th scope="col">Lastname</th>
-                                            <th scope="col">Gender</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        {
-                                            visitorList.map((visitor, index) => {
-                                                return (
-                                                    <tr key={visitor.id}>
-                                                        <th scope="row">{index  + 1}</th>
-                                                        <td>{visitor.fullname.firstname}</td>
-                                                        <td>{visitor.fullname.lastname}</td>
-                                                        <td>{visitor.gender}</td>
-                                                    </tr>
-                                                )
-                                            })
-                                        }
-                                    </tbody>
-                                </table>
+                                <div className="table-responsive">
+                                    <table className="table bg-white rounded shadow-sm table-hover">
+                                        <thead className='thead-dark'>
+                                            <tr>
+                                                <th scope="col">createdAt</th>
+                                                <th scope="col">Firstname</th>
+                                                <th scope="col">Lastname</th>
+                                                <th scope="col">Gender</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            {
+                                                visitorList.map((visitor) => {
+                                                    return (
+                                                        <tr key={visitor.id}>
+                                                            <td>{visitor.createdAt.toDate().toLocaleDateString()}</td>
+                                                            <td>{visitor.fullname.firstname}</td>
+                                                            <td>{visitor.fullname.lastname}</td>
+                                                            <td>{visitor.gender}</td>
+                                                        </tr>
+                                                    )
+                                                })
+                                            }
+                                        </tbody>
+                                    </table>
+                                </div>
                             </div>
                         </div>
 
