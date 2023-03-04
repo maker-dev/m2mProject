@@ -18,6 +18,8 @@ import Dashboard from './pages/admin/Dashboard';
 import UserProtectedRoutes from './protected/UserProtectedRoutes';
 import AdminProtectedRoutes from './protected/AdminProtectedRoutes';
 import Admission from './pages/admin/Admission';
+import Accepted from './pages/admin/Accepted';
+import Rejected from './pages/admin/Rejected';
 function App() {
   return (
     <div className="App">   
@@ -38,6 +40,8 @@ function App() {
             <Route element={<AdminProtectedRoutes />}>
               <Route path='/Admin/Dashboard' element={<Dashboard />} />
               <Route path='/Admin/Admission' element={<Admission />} />
+              <Route path='/Admin/Accepted' element={<Accepted />} />
+              <Route path='/Admin/Rejected' element={<Rejected />} />
             </Route>
             <Route path='*' element={<NotFound />} />
         </Routes>

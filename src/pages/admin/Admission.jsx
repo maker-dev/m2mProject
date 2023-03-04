@@ -1,6 +1,6 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
 import { signOut } from 'firebase/auth';
-import { doc, getDocs, orderBy, query, setDoc, updateDoc, where } from 'firebase/firestore';
+import { doc, getDocs, orderBy, query, updateDoc, where } from 'firebase/firestore';
 import React, { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom';
 import Loader from '../../components/Loader';
@@ -32,7 +32,7 @@ function Admission() {
         window.localStorage.clear();
         setLoading(false);
     }
-    const AccepteUser = async (uid, job) => {
+    const AccepteUser = async (user) => {
         let response = await Swal.fire({
             title: 'Are you sure?',
             text: "You won't be able to revert this!",
@@ -46,21 +46,77 @@ function Admission() {
             return;
         } else if (response.isConfirmed) {
             setLoading(true);
-            let theDoc = doc(db, "users", uid);
+            let theDoc = doc(db, "users", user.id);
             await updateDoc(theDoc, {
+                inbox: [
+                    ...user.inbox,
+                    {
+                        createdAt: `${new Date().toDateString()}`,
+                        title: "Congratulations",
+                        to: `${user.fullname.firstname}`,
+                        msg: "We are delighted to inform you that your job application has been successful, and we are impressed with your qualifications and experience. Congratulations on your new role with our company! In the coming days, you will receive an email with further instructions on the onboarding process, including your start date and what to expect on your first day. If you have any questions or concerns, please don't hesitate to contact us.",
+                        thanks: "Best Regards",
+                        from: "m2mServices",
+                    }
+                ],
                 apply: {
                     state: "accepted",
-                    job
+                    job: user.apply.job
                 }
             })
             setPendinglist(pendings => {
-                return pendings.filter(pending => pending.id !== uid)
+                return pendings.filter(pending => pending.id !== user.id)
             })
             setLoading(false);
             Swal.fire({
                 position: 'top-end',
                 icon: 'success',
                 title: 'User has been Accepted',
+                showConfirmButton: false,
+                timer: 1500
+            })
+        }
+    }
+    const RejectUser  = async (user) => {
+        let response = await Swal.fire({
+            title: 'Are you sure?',
+            text: "You won't be able to revert this!",
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#3085d6',
+            cancelButtonColor: '#d33',
+            confirmButtonText: 'Delete'
+        }).then(res => res);
+        if (!response.isConfirmed) {
+            return;
+        } else if (response.isConfirmed) {
+            setLoading(true);
+            let theDoc = doc(db, "users", user.id);
+            await updateDoc(theDoc, {
+                inbox: [
+                    ...user.inbox,
+                    {
+                        createdAt: `${new Date().toDateString()}`,
+                        title: "Application Has Been Closed",
+                        to: `${user.fullname.firstname}`,
+                        msg: "Thank you for taking the time to apply for the position with our company. We appreciate your interest in working with us and appreciate the effort you put into your application. After careful consideration of your application and qualifications, we regret to inform you that we have decided not to move forward with your application.",
+                        thanks: "Best Regards",
+                        from: "m2mServices",
+                    }
+                ],
+                apply: {
+                    state: "rejected",
+                    job: user.apply.job
+                }
+            })
+            setPendinglist(pendings => {
+                return pendings.filter(pending => pending.id !== user.id)
+            })
+            setLoading(false);
+            Swal.fire({
+                position: 'top-end',
+                icon: 'success',
+                title: 'User has been Rejected',
                 showConfirmButton: false,
                 timer: 1500
             })
@@ -76,9 +132,15 @@ function Admission() {
                     <div className="list-group list-group-flush my-3">
                         <Link to={"/Admin/Dashboard"} className=" text-info list-group-item list-group-item-action bg-transparent">
                             <i className="fas fa-tachometer-alt mr-2"></i>Dashboard</Link>
-                        <Link to={"/Admin/Admission"} className=" text-success list-group-item list-group-item-action bg-transparent">
+                        <Link to={"/Admin/Admission"} className=" text-primary list-group-item list-group-item-action bg-transparent">
                             <i className="fa-solid fa-clipboard mr-2"></i>Admission</Link>
-                        <a className="list-group-item list-group-item-action bg-transparent text-danger fw-bold" onClick={signout}>
+                        <Link to={"/Admin/Accepted"} className=" text-success list-group-item list-group-item-action bg-transparent">
+                            <i className="fa-solid fa-file-circle-check mr-2"></i>Accepted
+                        </Link>
+                        <Link to={"/Admin/Rejected"} className=" text-danger list-group-item list-group-item-action bg-transparent">
+                            <i className="fa-solid fa-file-circle-xmark mr-2"></i>Rejected
+                        </Link>
+                        <a className="list-group-item list-group-item-action bg-transparent text-warning fw-bold" onClick={signout}>
                             <i className="fas fa-power-off mr-2"></i>Logout</a>
                     </div>
                 </div>
@@ -129,9 +191,9 @@ function Admission() {
                                                             </td>
                                                             <td>
                                                                 <div className='d-flex'>
-                                                                    <button className='btn btn-success' onClick={() => AccepteUser(pending.id, pending.apply.job)}>Accept</button>
+                                                                    <button className='btn btn-success' onClick={() => AccepteUser(pending)}>Accept</button>
                                                                     <span className='px-2'></span>
-                                                                    <button className='btn btn-danger'>Reject</button>
+                                                                    <button className='btn btn-danger' onClick={() => RejectUser(pending)}>Reject</button>
                                                                 </div>
                                                             </td>
                                                         </tr>

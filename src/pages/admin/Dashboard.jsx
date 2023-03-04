@@ -109,9 +109,15 @@ function Dashboard() {
                     <div className="list-group list-group-flush my-3">
                         <Link to={"/Admin/Dashboard"} className=" text-info list-group-item list-group-item-action bg-transparent">
                             <i className="fas fa-tachometer-alt mr-2"></i>Dashboard</Link>
-                        <Link to={"/Admin/Admission"} className=" text-success list-group-item list-group-item-action bg-transparent">
+                        <Link to={"/Admin/Admission"} className=" text-primary list-group-item list-group-item-action bg-transparent">
                             <i className="fa-solid fa-clipboard mr-2"></i>Admission</Link>
-                        <a className="list-group-item list-group-item-action bg-transparent text-danger fw-bold" onClick={signout}>
+                        <Link to={"/Admin/Accepted"} className=" text-success list-group-item list-group-item-action bg-transparent">
+                            <i className="fa-solid fa-file-circle-check mr-2"></i>Accepted
+                        </Link>
+                        <Link to={"/Admin/Rejected"} className=" text-danger list-group-item list-group-item-action bg-transparent">
+                            <i className="fa-solid fa-file-circle-xmark mr-2"></i>Rejected
+                        </Link>
+                        <a className="list-group-item list-group-item-action bg-transparent text-warning fw-bold" onClick={signout}>
                             <i className="fas fa-power-off mr-2"></i>Logout</a>
                     </div>
                 </div>

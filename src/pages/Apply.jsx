@@ -240,12 +240,12 @@ function Apply() {
     } else if (userInfo.apply.state === "rejected") {
         let imgSrc = userInfo.apply.job === "dog trainer" ? "dog-trainer" : userInfo.apply.job;
         content =   <main className='apply-rejected'>
-                        <h2 className='title'><span><i class="fa-solid fa-circle-xmark mr-2"></i></span>Rejected</h2>
+                        <h2 className='title'><span><i className="fa-solid fa-circle-xmark mr-2"></i></span>Rejected</h2>
                         <div className="row">
                             <div className="col">
                                 <div className="result-container">
                                     <div className="header">
-                                        <h4 className='text-danger'><i class="fa-solid fa-xmark mr-2"></i>The Application Has Been Rejected</h4>
+                                        <h4 className='text-danger'><i className="fa-solid fa-xmark mr-2"></i>The Application Has Been Rejected</h4>
                                         <div className="actions">
                                             <Link to={"/Inbox"} className="btn btn-info">Inbox</Link>
                                         </div>
