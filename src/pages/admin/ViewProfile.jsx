@@ -81,8 +81,8 @@ function ViewProfile() {
                                     <div className="card-body">
                                         <div className="card-title mb-4">
                                             <div className="d-flex justify-content-start">
-                                                <div className="image-container br-8">
-                                                    <img src={userInfo.profileImg ? userInfo.profileImg : userInfo.gender === "Male" ? "/assets/profileImage/view-male.jpg" : "/assets/profileImage/view-female.jpg"} alt='profileImage' id="imgProfile"  />
+                                                <div className="image-container">
+                                                    <img src={userInfo.profileImg ? userInfo.profileImg : userInfo.gender === "Male" ? "/assets/profileImage/view-male.jpg" : "/assets/profileImage/view-female.jpg"} alt='profileImage' id="imgProfile" className='br-8' />
                                                 </div>
                                                 <div className="ml-3">
                                                     <h3 className="d-block font-weight-bold text-capitalize userName">{`${userInfo.fullname.firstname} ${userInfo.fullname.lastname}`}</h3>
@@ -164,6 +164,15 @@ function ViewProfile() {
                                                             </div>
                                                             <div className="col-md-8 col-6">
                                                                 {userInfo.place.postalcode}
+                                                            </div>
+                                                        </div>
+                                                        <hr />
+                                                        <div className="row">
+                                                            <div className="col-sm-3 col-md-2 col-5">
+                                                                <label className='font-weight-bold text-secondary'>houseNumber</label>
+                                                            </div>
+                                                            <div className="col-md-8 col-6">
+                                                                {userInfo.place.housenumber}
                                                             </div>
                                                         </div>
     
