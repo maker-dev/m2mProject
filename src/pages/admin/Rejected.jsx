@@ -2,13 +2,14 @@
 import { signOut } from 'firebase/auth';
 import { getDocs, orderBy, query, where } from 'firebase/firestore';
 import React, { useEffect, useState } from 'react'
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import Loader from '../../components/Loader';
 import { auth, usersColl } from '../../config/config';
 import { useAuthe } from '../../global/Authe';
 
 function Rejected() {
     const [loading, setLoading] = useState(false);
+    const navigate = useNavigate();
     const [rejectedList, setRejectedlist] = useState([]);
     useEffect(() => {
         let getAccepted = query(usersColl, where("apply.state", "==", "rejected"), orderBy("createdAt", "desc"))
@@ -30,6 +31,7 @@ function Rejected() {
         setLoading(true);
         await signOut(auth);
         window.localStorage.clear();
+        navigate("/")
         setLoading(false);
     }
     return (

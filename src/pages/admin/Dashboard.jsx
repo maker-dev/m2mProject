@@ -1,6 +1,6 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
 import React, { useEffect, useState } from 'react'
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import {signOut} from 'firebase/auth';
 import {auth, usersColl} from '../../config/config';
 import Loader from '../../components/Loader';
@@ -8,6 +8,7 @@ import { getCountFromServer, getDocs, limit, orderBy, query, where } from 'fireb
 import { useAuthe } from '../../global/Authe';
 function Dashboard() {
     const [loading, setLoading] = useState(false);
+    const navigate = useNavigate();
     //job state
     const [accepted, setAccepted] = useState(0);
     const [rejected, setRejected] = useState(0);
@@ -97,6 +98,7 @@ function Dashboard() {
         setLoading(true);
         await signOut(auth);
         window.localStorage.clear();
+        navigate("/")
         setLoading(false);
     }
     return (

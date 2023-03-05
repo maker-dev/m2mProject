@@ -20,6 +20,7 @@ import AdminProtectedRoutes from './protected/AdminProtectedRoutes';
 import Admission from './pages/admin/Admission';
 import Accepted from './pages/admin/Accepted';
 import Rejected from './pages/admin/Rejected';
+import ViewProfile from './pages/admin/ViewProfile';
 function App() {
   return (
     <div className="App">   
@@ -42,6 +43,7 @@ function App() {
               <Route path='/Admin/Admission' element={<Admission />} />
               <Route path='/Admin/Accepted' element={<Accepted />} />
               <Route path='/Admin/Rejected' element={<Rejected />} />
+              <Route path='/Admin/User/View/id/:userid' element={<ViewProfile />} />
             </Route>
             <Route path='*' element={<NotFound />} />
         </Routes>

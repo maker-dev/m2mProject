@@ -2,7 +2,7 @@
 import { signOut } from 'firebase/auth';
 import { getDocs, orderBy, query, where } from 'firebase/firestore';
 import React, { useEffect, useState } from 'react'
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import Loader from '../../components/Loader';
 import { auth, usersColl } from '../../config/config';
 import { useAuthe } from '../../global/Authe';
@@ -10,6 +10,7 @@ import { useAuthe } from '../../global/Authe';
 function Accepted() {
     const [loading, setLoading] = useState(false);
     const [acceptedList, setAcceptedlist] = useState([]);
+    const navigate = useNavigate();
     useEffect(() => {
         let getAccepted = query(usersColl, where("apply.state", "==", "accepted"), orderBy("createdAt", "desc"))
         getDocs(getAccepted)
@@ -30,6 +31,7 @@ function Accepted() {
         setLoading(true);
         await signOut(auth);
         window.localStorage.clear();
+        navigate("/");
         setLoading(false);
     }
     return (

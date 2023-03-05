@@ -2,14 +2,16 @@
 import { signOut } from 'firebase/auth';
 import { doc, getDocs, orderBy, query, updateDoc, where } from 'firebase/firestore';
 import React, { useEffect, useState } from 'react'
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import Loader from '../../components/Loader';
 import { auth, db, usersColl } from '../../config/config';
 import { useAuthe } from '../../global/Authe';
 import Swal from 'sweetalert2';
+import { errhandling } from '../../utilities/ErrorHandling';
 function Admission() {
     const [loading, setLoading] = useState(false);
     const [pendingList, setPendinglist] = useState([]);
+    const navigate = useNavigate();
     useEffect(() => {
         let getPending = query(usersColl, where("apply.state", "==", "pending"), orderBy("createdAt", "asc"))
         getDocs(getPending)
@@ -30,6 +32,7 @@ function Admission() {
         setLoading(true);
         await signOut(auth);
         window.localStorage.clear();
+        navigate("/")
         setLoading(false);
     }
     const AccepteUser = async (user) => {
@@ -45,36 +48,41 @@ function Admission() {
         if (!response.isConfirmed) {
             return;
         } else if (response.isConfirmed) {
-            setLoading(true);
-            let theDoc = doc(db, "users", user.id);
-            await updateDoc(theDoc, {
-                inbox: [
-                    ...user.inbox,
-                    {
-                        createdAt: `${new Date().toDateString()}`,
-                        title: "Congratulations",
-                        to: `${user.fullname.firstname}`,
-                        msg: "We are delighted to inform you that your job application has been successful, and we are impressed with your qualifications and experience. Congratulations on your new role with our company! In the coming days, you will receive an email with further instructions on the onboarding process, including your start date and what to expect on your first day. If you have any questions or concerns, please don't hesitate to contact us.",
-                        thanks: "Best Regards",
-                        from: "m2mServices",
+            try {
+                setLoading(true);
+                let theDoc = doc(db, "users", user.id);
+                await updateDoc(theDoc, {
+                    inbox: [
+                        ...user.inbox,
+                        {
+                            createdAt: `${new Date().toDateString()}`,
+                            title: "Congratulations",
+                            to: `${user.fullname.firstname}`,
+                            msg: "We are delighted to inform you that your job application has been successful, and we are impressed with your qualifications and experience. Congratulations on your new role with our company! In the coming days, you will receive an email with further instructions on the onboarding process, including your start date and what to expect on your first day. If you have any questions or concerns, please don't hesitate to contact us.",
+                            thanks: "Best Regards",
+                            from: "m2mServices",
+                        }
+                    ],
+                    apply: {
+                        state: "accepted",
+                        job: user.apply.job
                     }
-                ],
-                apply: {
-                    state: "accepted",
-                    job: user.apply.job
-                }
-            })
-            setPendinglist(pendings => {
-                return pendings.filter(pending => pending.id !== user.id)
-            })
-            setLoading(false);
-            Swal.fire({
-                position: 'top-end',
-                icon: 'success',
-                title: 'User has been Accepted',
-                showConfirmButton: false,
-                timer: 1500
-            })
+                })
+                setPendinglist(pendings => {
+                    return pendings.filter(pending => pending.id !== user.id)
+                })
+                setLoading(false);
+                Swal.fire({
+                    position: 'top-end',
+                    icon: 'success',
+                    title: 'User has been Accepted',
+                    showConfirmButton: false,
+                    timer: 1500
+                })
+            } catch(err) {
+                setLoading(false);
+                errhandling(err.code);
+            }
         }
     }
     const RejectUser  = async (user) => {
@@ -90,36 +98,41 @@ function Admission() {
         if (!response.isConfirmed) {
             return;
         } else if (response.isConfirmed) {
-            setLoading(true);
-            let theDoc = doc(db, "users", user.id);
-            await updateDoc(theDoc, {
-                inbox: [
-                    ...user.inbox,
-                    {
-                        createdAt: `${new Date().toDateString()}`,
-                        title: "Application Has Been Closed",
-                        to: `${user.fullname.firstname}`,
-                        msg: "Thank you for taking the time to apply for the position with our company. We appreciate your interest in working with us and appreciate the effort you put into your application. After careful consideration of your application and qualifications, we regret to inform you that we have decided not to move forward with your application.",
-                        thanks: "Best Regards",
-                        from: "m2mServices",
+            try {
+                setLoading(true);
+                let theDoc = doc(db, "users", user.id);
+                await updateDoc(theDoc, {
+                    inbox: [
+                        ...user.inbox,
+                        {
+                            createdAt: `${new Date().toDateString()}`,
+                            title: "Application Has Been Closed",
+                            to: `${user.fullname.firstname}`,
+                            msg: "Thank you for taking the time to apply for the position with our company. We appreciate your interest in working with us and appreciate the effort you put into your application. After careful consideration of your application and qualifications, we regret to inform you that we have decided not to move forward with your application.",
+                            thanks: "Best Regards",
+                            from: "m2mServices",
+                        }
+                    ],
+                    apply: {
+                        state: "rejected",
+                        job: user.apply.job
                     }
-                ],
-                apply: {
-                    state: "rejected",
-                    job: user.apply.job
-                }
-            })
-            setPendinglist(pendings => {
-                return pendings.filter(pending => pending.id !== user.id)
-            })
-            setLoading(false);
-            Swal.fire({
-                position: 'top-end',
-                icon: 'success',
-                title: 'User has been Rejected',
-                showConfirmButton: false,
-                timer: 1500
-            })
+                })
+                setPendinglist(pendings => {
+                    return pendings.filter(pending => pending.id !== user.id)
+                })
+                setLoading(false);
+                Swal.fire({
+                    position: 'top-end',
+                    icon: 'success',
+                    title: 'User has been Rejected',
+                    showConfirmButton: false,
+                    timer: 1500
+                })
+            } catch(err) {
+                setLoading(false);
+                errhandling(err.code);
+            }
         }
     }
     return (
