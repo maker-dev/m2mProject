@@ -32,12 +32,12 @@ function App() {
             <Route path='/Signin' element={<Signin />} />
             <Route path='/Verify' element={<Verify />} />
             <Route path='/ResetPassword' element={<ResetPassword />} />
+            <Route path='/Admin' element={<Admin />} />
             <Route element={<UserProtectedRoutes />}>
               <Route path='/Profile' element={<Profile />} />
               <Route path='/Apply' element={<Apply />} />
               <Route path='/Inbox' element={<Inbox />} />
             </Route>
-            <Route path='/Admin' element={<Admin />} />
             <Route element={<AdminProtectedRoutes />}>
               <Route path='/Admin/Dashboard' element={<Dashboard />} />
               <Route path='/Admin/Admission' element={<Admission />} />
