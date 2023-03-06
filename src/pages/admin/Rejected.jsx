@@ -74,7 +74,7 @@ function Rejected() {
                     <div className="container-fluid px-4">
                             <div className="row mt-2">
                                 <div className="col-12">
-                                    <h3 className='fs-3 mb-3 text-muted text-capitalize'>Accepted User</h3>
+                                    <h3 className='fs-3 mb-3 text-muted text-capitalize'>Rejected Users</h3>
                                     <div className="table-responsive">
                                         <table className="table bg-white rounded shadow-sm">
                                         <thead>
