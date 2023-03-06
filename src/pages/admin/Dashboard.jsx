@@ -143,7 +143,7 @@ function Dashboard() {
                             <div className="col-12">
                                 <h3 className="fs-3 mb-3 text-muted text-capitalize">dashboard</h3>
                             </div>
-                            <div className="col-12 col-md-6 col-lg-3 mb-3 mb-lg-0">
+                            <div className="col-12 col-md-6 col-xl-3 mb-3 mb-lg-0">
                                 <div className="p-3 bg-white shadow-sm d-flex justify-content-around align-items-center rounded">
                                     <div>
                                         <h3 className="fs-2">{accepted}</h3>
@@ -153,7 +153,7 @@ function Dashboard() {
                                 </div>
                             </div>
 
-                            <div className="col-12 col-md-6 col-lg-3 mb-3 mb-lg-0">
+                            <div className="col-12 col-md-6 col-xl-3 mb-3 mb-lg-0">
                                 <div className="p-3 bg-white shadow-sm d-flex justify-content-around align-items-center rounded">
                                     <div>
                                         <h3 className="fs-2">{rejected}</h3>
@@ -163,7 +163,7 @@ function Dashboard() {
                                 </div>
                             </div>
 
-                            <div className="col-12 col-md-6 col-lg-3 mb-3 mb-md-0">
+                            <div className="col-12 col-md-6 col-xl-3 mb-3 mb-md-0">
                                 <div className="p-3 bg-white shadow-sm d-flex justify-content-around align-items-center rounded">
                                     <div>
                                         <h3 className="fs-2">{pending}</h3>
@@ -173,7 +173,7 @@ function Dashboard() {
                                 </div>
                             </div>
 
-                            <div className="col-12 col-md-6 col-lg-3 mb-md-0">
+                            <div className="col-12 col-md-6 col-xl-3 mb-md-0">
                                 <div className="p-3 bg-white shadow-sm d-flex justify-content-around align-items-center rounded">
                                     <div>
                                         <h3 className="fs-2">{visitor}</h3>
