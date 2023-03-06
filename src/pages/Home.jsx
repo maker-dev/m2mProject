@@ -99,8 +99,8 @@ function Home() {
         <h2 className='text-center fw-bold'>Our <span>Jobs</span></h2>
         <div className="row">
           <div className="col-12 col-md-6 col-lg-4 m-auto">
-            <div className="card border-0 shadow text-center mb-lg-0 mb-4">
-              <div className="card-body">
+            <div className="card border-0 text-center mb-lg-0 mb-4">
+              <div className="card-body shadow-sm">
               <img src='/assets/icons/security.svg' alt='security image' />
               <h3>Security</h3>
               <p>Security guards and surveillance agents are first impressions for two companies and professionalism is crucial.</p>
@@ -108,8 +108,8 @@ function Home() {
             </div>
           </div>
           <div className="col-12 col-md-6 col-lg-4 m-auto">
-            <div className="card border-0 shadow text-center mb-lg-0  mb-4">
-              <div className="card-body">
+            <div className="card border-0 text-center mb-lg-0  mb-4">
+              <div className="card-body shadow-sm">
               <img src='/assets/icons/hostess.svg' alt='hostess image' />
               <h3>Hostess</h3>
               <p>Quality improved by hostesses and hosts, set apart by personalized selection, supervision, flexibility, responsiveness, proximity.</p>
@@ -117,8 +117,8 @@ function Home() {
             </div>
           </div>
           <div className="col-12 col-md-6 col-lg-4 m-auto">
-            <div className="card border-0 shadow text-center">
-              <div className="card-body">
+            <div className="card border-0 text-center">
+              <div className="card-body shadow-sm">
               <img src='/assets/icons/dog-trainer.svg' alt='dog-trainer image' />
               <h3>Dog Trainer</h3>
               <p>We provide protection for property and people in a designated area, following employer instructions, utilizing dog handler skills.</p>

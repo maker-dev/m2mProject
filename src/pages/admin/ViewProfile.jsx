@@ -88,7 +88,7 @@ function ViewProfile() {
                                                     <h3 className="d-block font-weight-bold text-capitalize userName">{`${userInfo.fullname.firstname} ${userInfo.fullname.lastname}`}</h3>
                                                     <h6 className="d-block text-muted">Job: {userInfo.apply.job}</h6>
                                                     <h6 className="d-block text-muted">{userInfo.isOld ? "Old Employee" : "New Employee"}</h6>
-                                                    <a className='btn btn-info' href={userInfo.cv} target={'_blank'}>Go To Cv</a>
+                                                    <a className='btn btn-info text-white' href={userInfo.cv} target={'_blank'}>Go To Cv</a>
                                                 </div>
                                             </div>
                                         </div>
@@ -169,7 +169,7 @@ function ViewProfile() {
                                                         <hr />
                                                         <div className="row">
                                                             <div className="col-sm-3 col-md-2 col-5">
-                                                                <label className='font-weight-bold text-secondary'>houseNumber</label>
+                                                                <label className='font-weight-bold text-secondary'>houseNbr</label>
                                                             </div>
                                                             <div className="col-md-8 col-6">
                                                                 {userInfo.place.housenumber}

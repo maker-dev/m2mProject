@@ -127,6 +127,9 @@
 #our-jobs {
     background-color: $section-background;
     padding: $section-padding 0;
+    .shadow-sm {
+        box-shadow: 0 .125rem .25rem rgba(0, 0, 0, .075) !important;
+    }
     h2 {
         @include title;
         span {
