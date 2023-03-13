@@ -43,7 +43,7 @@ function Admission() {
             showCancelButton: true,
             confirmButtonColor: '#3085d6',
             cancelButtonColor: '#d33',
-            confirmButtonText: 'Accepte'
+            confirmButtonText: 'Accept'
         }).then(res => res);
         if (!response.isConfirmed) {
             return;
@@ -93,7 +93,7 @@ function Admission() {
             showCancelButton: true,
             confirmButtonColor: '#3085d6',
             cancelButtonColor: '#d33',
-            confirmButtonText: 'Delete'
+            confirmButtonText: 'Reject'
         }).then(res => res);
         if (!response.isConfirmed) {
             return;
