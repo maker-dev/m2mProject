@@ -4,7 +4,7 @@ This is a job board application built for **M2M**, designed to streamline the in
 
 The application was built during my internship and utilizes Firebase for authentication and Firestore for data management.
 
-## Features 🚀
+## 🚀 Features 
 
 - 🔐 **User Authentication**: Secure login and registration for employees using Firebase Authentication.
 - 📋 **Job Listings**: View available job positions within M2M, including job title, description, and requirements.
@@ -12,19 +12,19 @@ The application was built during my internship and utilizes Firebase for authent
 - 📱 **Responsive Design**: The app is fully responsive, ensuring it works well on both desktop and mobile devices.
 - 📧 **Email Notifications**: Email confirmation and notifications are sent when a job application is submitted.
 
-## Technologies Used 🛠️
+## 🛠️ Technologies Used 
 
 - **Frontend**: React.js
 - **Backend**: Firebase (Firestore, Authentication)
 - 
-## Contributing 🤝
+## 🤝 Contributing 
 
 Since this project is specifically for M2M, contributions are limited to internal team members. If you'd like to suggest improvements, please open an issue or reach out to the project maintainers.
 
-## License 📝
+## 📝 License 
 
 This project is for internal use at M2M and is not open-source.
 
-## Contact 📧
+## 📧 Contact 
 
 For any questions, feel free to reach out to me via email: anasdraiaf.dev@gmail.com
